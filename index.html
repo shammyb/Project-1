@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="snake.css">
+  <audio class="dinner" id="dinner" src="./audio/snake-Eats.mp3"></audio>
+</head>
+<body>
+  <h1>Orochimarus Snake</h1>
+  <h2 id="trackScore">Score: 0 </h2>
+  <div>
+  <input type="text" id="name" name="name" placeholder="Name">
+  <button id="withWalls">with walls</button> <button id="withoutWalls">without walls</button>
+</div>
+<br>
+  <div class="grid" id="game_board">
+  </div>
+  <div id="score_board"><br>
+  </div>
+  <div><h1>High Scores:</h1></div>
+  <div id = "highScores"> </div>
+  <script src="snake.js"></script>
+</body>
+</html>

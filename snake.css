@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid green;
+  width: 600px;
+  height: 450px;
+  background-image: url(./pictures/Game-Background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-wrap: wrap;
+}
+
+.cell {
+}
+
+.snake{
+    background-image: url(./pictures/head.png);
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    transform: rotate(90 deg);
+}
+.food{
+    background-image: url(./pictures/Sasuke.png);
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.snake-body-straight{
+  background-image: url(./pictures/body\ straight.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg);
+}
+.snake-body-verticle{
+  background-image: url(./pictures/body\ straight.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.snake-curve1{
+  background-image: url(./pictures/body\ curve\ 2.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.snake-curve2{
+  background-image: url(./pictures/body\ curve\ 2.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg);
+}
+.snake-curve3{
+  background-image: url(./pictures/body\ curve\ 2.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
+}
+.snake-curve4{
+  background-image: url(./pictures/body\ curve\ 2.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(270deg);
+}
+.snake-tail1{
+  background-image: url(./pictures/tial.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+.snake-tail2{
+  background-image: url(./pictures/tial.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg);
+}
+.snake-tail3{
+  background-image: url(./pictures/tial.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
+}
+.snake-tail4{
+  background-image: url(./pictures/tial.png);
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(270deg);
+}
