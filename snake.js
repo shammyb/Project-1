@@ -1,11 +1,10 @@
 
 const wallButton = document.getElementById('withWalls')
 wallButton.addEventListener('click', withWalls)
-
-
 let playerName = "";
-
 function withWalls() {
+  document.getElementById('highScores').innerHTML = null
+
   playerName = document.getElementById('name').value;
   document.getElementById('game_board').style.display = 'flex'
   document.getElementById('score_board').style.display = 'none'
@@ -219,7 +218,7 @@ function withWalls() {
     movement = setInterval(moveSnake, currentSpeed);
   }
 
-  init();
+  init()
 
   function moveSnake() {
     for (let i = 1; i < snake.length; i++) {
@@ -331,18 +330,10 @@ function withWalls() {
       
   }
 }
-
-
-
-
-
-
 const noWallButton = document.getElementById('withoutWalls')
 noWallButton.addEventListener('click', withoutWalls)
-
-
-
 function withoutWalls() {
+  document.getElementById('highScores').innerHTML = null
   playerName = document.getElementById('name').value
   document.getElementById('game_board').style.display = 'flex'
   document.getElementById('score_board').style.display = 'none'

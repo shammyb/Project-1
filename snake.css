@@ -8,7 +8,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0
+  margin: 0;
+  background-image: url(./pictures/Konoha.gif);
+  background-size: cover;
+  background-repeat: no-repeat;  
+
 }
 
 .grid {
@@ -106,4 +110,36 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   transform: rotate(270deg);
+}
+h1{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+h2{
+text-align: center;
+}
+button{
+  padding: 2px;
+  border-radius: 30px;
+}
+#withWalls{
+  background-image: url(./pictures/wall.png);
+  background-size: contain;
+}
+#withoutWalls{
+  background-image: url(./pictures/NoWalls.jpg);
+  background-size: contain;
+}
+#title{
+  font-family: 'Hachi Maru Pop', cursive;
+  color: grey;
+}
+.message{
+  font-family: 'Hanalei', cursive;
+}
+#trackScore{
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: red;
+}
+#highScores{
+  font-family: 'Open Sans Condensed', sans-serif;
 }

@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Snake Game</title>
   <link rel="stylesheet" href="snake.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Hanalei&display=swap" rel="stylesheet"> 
   <audio class="dinner" id="dinner" src="./audio/snake-Eats.mp3"></audio>
 </head>
+
 <body>
-  <h1>Orochimarus Snake</h1>
+  <h1 id="title">Orochimarus Snake</h1>
+  <h2 class="message">Input keys are W A S D</h2>
+  <h2 class="message">Make sure to put your name in before chosing a mode!</h2>
   <h2 id="trackScore">Score: 0 </h2>
   <div>
-  <input type="text" id="name" name="name" placeholder="Name">
-  <button id="withWalls">with walls</button> <button id="withoutWalls">without walls</button>
-</div>
-<br>
+    <input type="text" id="name" name="name" placeholder="Name">
+    <button id="withWalls">with walls</button> <button id="withoutWalls">without walls</button>
+  </div>
+  <br>
   <div class="grid" id="game_board">
   </div>
   <div id="score_board"><br>
   </div>
-  <div><h1>High Scores:</h1></div>
-  <div id = "highScores"> </div>
+  <div>
+    <h1>High Scores:</h1>
+  </div>
+  <div id="highScores"> </div>
   <script src="snake.js"></script>
 </body>
+
 </html>
