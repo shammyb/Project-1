@@ -20,7 +20,7 @@ function withWalls() {
   let number = Math.floor(Math.random() * (height * width))
   let food = number
   let direction = ''
-  let currentSpeed = 1000
+  let currentSpeed = 700
 
   document.querySelector('.grid').innerHTML = null;
 
@@ -235,7 +235,7 @@ function withWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -250,7 +250,7 @@ function withWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -264,7 +264,7 @@ function withWalls() {
         extendSnake();
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -279,7 +279,7 @@ function withWalls() {
         extendSnake();
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -349,7 +349,7 @@ function withoutWalls() {
   let number = Math.floor(Math.random() * (height * width))
   let food = number
   let direction = ''
-  let currentSpeed = 1000
+  let currentSpeed = 700
 
   document.querySelector('.grid').innerHTML = null;
 
@@ -585,7 +585,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -597,7 +597,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -610,7 +610,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -622,7 +622,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -634,7 +634,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -646,7 +646,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -659,7 +659,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
@@ -672,7 +672,7 @@ function withoutWalls() {
         extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
-          currentSpeed -= 30
+          currentSpeed -= 25
           movement = setInterval(moveSnake, currentSpeed)
         }
       }
