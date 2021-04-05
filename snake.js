@@ -1,11 +1,11 @@
 
 const wallButton = document.getElementById('withWalls')
 wallButton.addEventListener('click', withWalls)
-let playerName = "";
+let playerName = ''
 function withWalls() {
   document.getElementById('highScores').innerHTML = null
 
-  playerName = document.getElementById('name').value;
+  playerName = document.getElementById('name').value
   document.getElementById('game_board').style.display = 'flex'
   document.getElementById('score_board').style.display = 'none'
   document.getElementById('highScores').style.display = 'none'
@@ -16,13 +16,13 @@ function withWalls() {
   let cells = []
   let snake = [77, 78, 79]
   let score = 0
-  let movement = null;
+  let movement = null
   let number = Math.floor(Math.random() * (height * width))
   let food = number
   let direction = ''
   let currentSpeed = 700
 
-  document.querySelector('.grid').innerHTML = null;
+  document.querySelector('.grid').innerHTML = null
 
   for (let index = 0; index < width * height; index++) {
     const cell = document.createElement('div')
@@ -190,32 +190,32 @@ function withWalls() {
 
   document.addEventListener('keyup', (event) => {
     const key = event.key
-      ;
+      
     snakeMovements(key)
   })
 
   function snakeMovements(key) {
-    if (key == 'd') {
-      if (direction != 'a') {
+    if (key === 'd') {
+      if (direction !== 'a') {
         direction = key.toLowerCase()
       }
-    } else if (key == 'a') {
-      if (direction != 'd') {
+    } else if (key === 'a') {
+      if (direction !== 'd') {
         direction = key.toLowerCase()
       }
-    } else if (key == 'w') {
-      if (direction != 's') {
+    } else if (key === 'w') {
+      if (direction !== 's') {
         direction = key.toLowerCase()
       }
-    } else if (key == 's') {
-      if (direction != 'w') {
+    } else if (key === 's') {
+      if (direction !== 'w') {
         direction = key.toLowerCase()
       }
     }
   }
 
   function init() {
-    movement = setInterval(moveSnake, currentSpeed);
+    movement = setInterval(moveSnake, currentSpeed)
   }
 
   init()
@@ -223,7 +223,7 @@ function withWalls() {
   function moveSnake() {
     for (let i = 1; i < snake.length; i++) {
       if (snake[0] === snake[i]) {
-        lost();
+        lost()
         return
       }
     }
@@ -240,7 +240,7 @@ function withWalls() {
         }
       }
     } else if ((direction === 'd' || direction === 'D') && (snake[0] % width === width - 1)) {
-      lost();
+      lost()
     } else if ((direction === 'a' || direction === 'A') && !(snake[0] % width === 0)) {
 
       eraseSnake()
@@ -255,13 +255,13 @@ function withWalls() {
         }
       }
     } else if ((direction === 'a' || direction === 'A') && (snake[0] % width === 0)) {
-      lost();
+      lost()
     } else if ((direction === 's' || direction === 'S') && !((snake[0] + width) >= (width * height))) {
       eraseSnake()
       offsetSnake(width)
       drawSnake()
       if (snakeEats()) {
-        extendSnake();
+        extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
           currentSpeed -= 25
@@ -269,14 +269,14 @@ function withWalls() {
         }
       }
     } else if ((direction === 's' || direction === 'S') && ((snake[0] + width) >= (width * height))) {
-      lost();
+      lost()
     } else if ((direction === 'w' || direction === 'W') && !(snake[0] < width)) {
 
       eraseSnake()
       offsetSnake(-width)
       drawSnake()
       if (snakeEats()) {
-        extendSnake();
+        extendSnake()
         if (currentSpeed > 200) {
           clearInterval(movement)
           currentSpeed -= 25
@@ -285,49 +285,49 @@ function withWalls() {
       }
 
     } else if ((direction === 'w' || direction === 'W') && (snake[0] < width)) {
-      lost();
+      lost()
     }
   }
 
   function lost() {
-      alert('You Lose');
-      clearInterval(movement);
-      document.getElementById('game_board').style.display = 'none';
-      document.getElementById('score_board').style.display = 'block';
-      document.getElementById('highScores').style.display = 'block';
-      document.getElementById('score_board').innerHTML = '<h1>YOUR SCORE IS: ' + score + '</h1>'
-      let ranking = localStorage.getItem("ranking-With-Walls");
-      let rankingArray = JSON.parse(ranking);
-      
-      
-      if(rankingArray == null) {
-        rankingArray = []
-      }
-      let find = rankingArray.findIndex(element => element.name === playerName)
-      if(find === -1) {
-        rankingArray.push({name: playerName, score: score})
-      } else {
-        if(score > rankingArray[find].score) {
-          rankingArray[find] = {name: playerName, score: score}
-        }
-      }
+    alert('You Lose')
+    clearInterval(movement)
+    document.getElementById('game_board').style.display = 'none'
+    document.getElementById('score_board').style.display = 'block'
+    document.getElementById('highScores').style.display = 'block'
+    document.getElementById('score_board').innerHTML = '<h1>YOUR SCORE IS: ' + score + '</h1>'
+    let ranking = localStorage.getItem("ranking-With-Walls")
+    let rankingArray = JSON.parse(ranking)
 
-      function compare( a, b ) {
-        if ( a.score < b.score ){
-          return 1;
-        }
-        if ( a.score > b.score ){
-          return -1;
-        }
-        return 0;
+
+    if (rankingArray === null) {
+      rankingArray = []
+    }
+    let find = rankingArray.findIndex(element => element.name === playerName)
+    if (find === -1) {
+      rankingArray.push({ name: playerName, score: score })
+    } else {
+      if (score > rankingArray[find].score) {
+        rankingArray[find] = { name: playerName, score: score }
       }
-      rankingArray.sort(compare)
-      localStorage.setItem("ranking-With-Walls", JSON.stringify(rankingArray))
-      for (let i = 0; i < rankingArray.length; i++) {
-        document.getElementById('highScores').innerHTML += '<h2><br>' +'<ul>' + '<li>' + 'Name:'+ ' ' + rankingArray[i].name + ' ' + 'Score:'+ ' ' + rankingArray[i].score  +'</li>'  + '</h2>'
-        
+    }
+
+    function compare(a, b) {
+      if (a.score < b.score) {
+        return 1
       }
-      
+      if (a.score > b.score) {
+        return -1
+      }
+      return 0
+    }
+    rankingArray.sort(compare)
+    localStorage.setItem("ranking-With-Walls", JSON.stringify(rankingArray))
+    for (let i = 0; i < rankingArray.length; i++) {
+      document.getElementById('highScores').innerHTML += '<h2><br>' + '<ul>' + '<li>' + 'Name:' + ' ' + rankingArray[i].name + ' ' + 'Score:' + ' ' + rankingArray[i].score + '</li>' + '</h2>'
+
+    }
+
   }
 }
 const noWallButton = document.getElementById('withoutWalls')
@@ -345,13 +345,13 @@ function withoutWalls() {
   let cells = []
   let snake = [77, 78, 79]
   let score = 0
-  let movement = null;
+  let movement = null
   let number = Math.floor(Math.random() * (height * width))
   let food = number
   let direction = ''
   let currentSpeed = 700
 
-  document.querySelector('.grid').innerHTML = null;
+  document.querySelector('.grid').innerHTML = null
 
   for (let index = 0; index < width * height; index++) {
     const cell = document.createElement('div')
@@ -367,7 +367,7 @@ function withoutWalls() {
       eatSound.play()
       cells[food].classList.remove('food')
       number = Math.floor(Math.random() * (height * width))
-      while (snake.indexOf(number) != -1) {
+      while (snake.indexOf(number) !== -1) {
         number = Math.floor(Math.random() * (height * width))
       }
       food = number
@@ -434,13 +434,13 @@ function withoutWalls() {
 
           cells[snake[i]].classList.add('snake-curve4')
         } else {
-          
+
           if ((direction === 'w') || (direction === 's')) {
             cells[snake[i]].classList.add('snake-body-verticle')
           } else {
             cells[snake[i]].classList.add('snake-body-straight')
           }
-            
+
         }
 
         if ((snake[snake.length - 2]) === (snake[snake.length - 1] - 1)) {
@@ -454,11 +454,11 @@ function withoutWalls() {
         } else {
           if (direction === 'w') {
             cells[snake[snake.length - 1]].classList.add('snake-tail2')
-          } else if(direction === 's') {
+          } else if (direction === 's') {
             cells[snake[snake.length - 1]].classList.add('snake-tail4')
-          } else if(direction === 'a') {
+          } else if (direction === 'a') {
             cells[snake[snake.length - 1]].classList.add('snake-tail1')
-          } else if(direction === 'd') {
+          } else if (direction === 'd') {
             cells[snake[snake.length - 1]].classList.add('snake-tail3')
           }
         }
@@ -477,13 +477,13 @@ function withoutWalls() {
         cells[snake[i]].classList.remove('snake-curve3')
         cells[snake[i]].classList.remove('snake-curve4')
       }
-      if(cells[snake[snake.length - 1]] !== 'undefined') {
+      if (cells[snake[snake.length - 1]] !== 'undefined') {
         cells[snake[snake.length - 1]].classList.remove('snake-tail1')
         cells[snake[snake.length - 1]].classList.remove('snake-tail2')
         cells[snake[snake.length - 1]].classList.remove('snake-tail3')
         cells[snake[snake.length - 1]].classList.remove('snake-tail4')
       }
-      
+
     }
   }
 
@@ -541,25 +541,25 @@ function withoutWalls() {
 
   document.addEventListener('keyup', (event) => {
     const key = event.key
-      ;
+      
     snakeMovements(key)
   })
 
   function snakeMovements(key) {
-    if (key == 'd') {
-      if (direction != 'a') {
+    if (key === 'd') {
+      if (direction !== 'a') {
         direction = key.toLowerCase()
       }
-    } else if (key == 'a') {
-      if (direction != 'd') {
+    } else if (key === 'a') {
+      if (direction !== 'd') {
         direction = key.toLowerCase()
       }
-    } else if (key == 'w') {
-      if (direction != 's') {
+    } else if (key === 'w') {
+      if (direction !== 's') {
         direction = key.toLowerCase()
       }
-    } else if (key == 's') {
-      if (direction != 'w') {
+    } else if (key === 's') {
+      if (direction !== 'w') {
         direction = key.toLowerCase()
       }
     }
@@ -569,12 +569,12 @@ function withoutWalls() {
     movement = setInterval(moveSnake, currentSpeed)
   }
 
-  init();
+  init()
 
   function moveSnake() {
     for (let i = 1; i < snake.length; i++) {
       if (snake[0] === snake[i]) {
-        lost();
+        lost()
       }
     }
     if ((direction === 'd' || direction === 'D') && !(snake[0] % width === width - 1)) {
@@ -685,34 +685,34 @@ function withoutWalls() {
     document.getElementById('score_board').style.display = 'block'
     document.getElementById('highScores').style.display = 'block'
     document.getElementById('score_board').innerHTML = '<h1>YOUR SCORE IS: ' + score + '</h1>'
-    let ranking = localStorage.getItem("ranking-Without-Walls");
-    let rankingArray = JSON.parse(ranking);
-    if(rankingArray == null) {
+    let ranking = localStorage.getItem("ranking-Without-Walls")
+    let rankingArray = JSON.parse(ranking)
+    if (rankingArray === null) {
       rankingArray = []
     }
     let find = rankingArray.findIndex(element => element.name === playerName)
-    if(find === -1) {
-      rankingArray.push({name: playerName, score: score})
+    if (find === -1) {
+      rankingArray.push({ name: playerName, score: score })
     } else {
-      if(score > rankingArray[find].score) {
-        rankingArray[find] = {name: playerName, score: score}
+      if (score > rankingArray[find].score) {
+        rankingArray[find] = { name: playerName, score: score }
       }
     }
-  
-    function compare( a, b ) {
-      if ( a.score < b.score ){
+
+    function compare(a, b) {
+      if (a.score < b.score) {
         return 1
       }
-      if ( a.score > b.score ){
+      if (a.score > b.score) {
         return -1
       }
       return 0
     }
-    rankingArray.sort(compare);
-    localStorage.setItem("ranking-Without-Walls", JSON.stringify(rankingArray));
+    rankingArray.sort(compare)
+    localStorage.setItem("ranking-Without-Walls", JSON.stringify(rankingArray))
     for (let i = 0; i < rankingArray.length; i++) {
-      document.getElementById('highScores').innerHTML += '<h2><br>' +'<ul>' + '<li>' + 'Name:' + ' ' + rankingArray[i].name + ' '+ 'Score:'+ ' ' + rankingArray[i].score  +'</li>'  + '</h2>'
-      
+      document.getElementById('highScores').innerHTML += '<h2><br>' + '<ul>' + '<li>' + 'Name:' + ' ' + rankingArray[i].name + ' ' + 'Score:' + ' ' + rankingArray[i].score + '</li>' + '</h2>'
+
     }
   }
 }
