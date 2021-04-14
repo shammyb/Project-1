@@ -72,6 +72,7 @@ Using Ziteboard I wrote out all the steps from creating the grid to getting the 
 
 ### The Basics
 To start this game I needed a grid and an array for the snake. This part was relatively simple as i created the grid and assigned 3 squares of those grids to the array. I did it like this:
+```javascript
 <div class="grid" id="game_board">
 </div>
 The above from the index.html file made a single square. i manipulated this in the snake.js file:
@@ -88,10 +89,11 @@ for (let index = 0; index < width * height; index++) {
   }
 and assigned three parts of the snake like so...
 let snake = [77, 78, 79]
+```
 
 ### Drawing the snake
 The most important part of any snake game is having a snake to play with. The snakes body will have to change based on the direction it is going. Looking back on this code now i could have done this in a much more tidy way. The key was to choose which picture i wanted dependant on the the other parts of the snake were as can be seen below:
-
+```javascript
 function drawSnake() {
   cells[snake[0]].classList.add('snake')
   if (snake.length > 1) {
@@ -133,8 +135,9 @@ function drawSnake() {
     }
   }
 }
-  
+  ```
 ### Snake Movement
+```javascript
   document.addEventListener('keyup', (event) => {
     const key = event.key
       
@@ -253,8 +256,10 @@ function drawSnake() {
       cells[snake[snake.length - 1]].classList.remove('snake-tail4')
     }
   }
+```
 
 Prior to creating the offset snake function the snake would  move weirdly if it had more than just a head as all the pieces would move in the same direction rather than following the bodypart before it. The offset function fixed that issue as can be seen below i created a copy of the snake and made the rest of the array equal the copy while the head would change. 
+```javascript
 function offsetSnake(offset) {
     const positions = [...snake]
     for (let i = 1; i < snake.length; i++) {
@@ -262,9 +267,10 @@ function offsetSnake(offset) {
     }
     snake[0] += offset
   }
-
+```
 ### Extending the snake
 This was the most challenging part of this project for me. The struggle was how and where do i insert the extra part of the body, and then insert it there. I thought back to GCSE mathematics and came to the conclusion that using vectors was the best way.
+```javascript
  function checkVector(pos1, pos2) {
     const vector = pos1 - pos2
     return vector
@@ -304,10 +310,11 @@ This was the most challenging part of this project for me. The struggle was how 
       }
     }
   }
-
+```
 ### Snake Eats
 
 Compared to the rest of the project this was fairly simple. Essentially if the head of the snake is equal to the food that it eats then it will call the function to extend the snake, erase the food and put the food somewhere else on the grid.
+```javascript
 function snakeEats() {
     if (food === snake[0]) {
       eatSound.play()
@@ -324,10 +331,13 @@ function snakeEats() {
     }
     return false
   }
+  ```
 This function is called whenever the snake moves
 
 ### Losing
 Every time the snake moves there are conditions set to check if the player has lost. Once the player has lost the game will stop and you will be allerted that you have lost. You will then be able to submit your high score on local storage (you will only be able to see the scores on that browser) and you will see where you rank compared to others who have played on your device.This will also make the game board dissapear.
+
+```javascript
 
 function lost() {
     alert('You Lose')
@@ -370,6 +380,7 @@ function lost() {
 
   }
 }
+```
 
 ### With and without walls
 
